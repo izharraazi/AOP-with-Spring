@@ -1,0 +1,190 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building SpringAop 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ SpringAop ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ SpringAop ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ SpringAop ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory G:\wspractise\SpringAOP-AccessControl\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ SpringAop ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ SpringAop ---
+[INFO] Surefire report directory: G:\wspractise\SpringAOP-AccessControl\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running AopTest
+Oct 06, 2015 9:45:49 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3aa9e816: startup date [Tue Oct 06 21:45:49 PDT 2015]; root of context hierarchy
+Oct 06, 2015 9:45:49 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [beans.xml]
+Oct 06, 2015 9:45:50 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+INFO: Overriding bean definition for bean 'secretMap': replacing [Generic bean: class [com.spring.aop.service.SecretMap]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [G:\wspractise\SpringAOP-AccessControl\target\classes\com\spring\aop\service\SecretMap.class]] with [Generic bean: class [com.spring.aop.service.SecretMap]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [beans.xml]]
+Oct 06, 2015 9:45:50 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@64485a47: defining beans [org.springframework.aop.config.internalAutoProxyCreator,loggingAspect,secret,secretMap,secretService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+----------------------TEST A - Bob cannot read Alice’s secret, which has not been shared with Bob. 
+Alice creates a secret with ID:: 27dc0387-484a-439d-8f23-1c486bd8b018
+Bob reads the secret of ID 27dc0387-484a-439d-8f23-1c486bd8b018
+Unauthorized exception- Insufficient Privelages
+Oct 06, 2015 9:45:51 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2cd76f31: startup date [Tue Oct 06 21:45:51 PDT 2015]; root of context hierarchy
+Oct 06, 2015 9:45:51 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [beans.xml]
+Oct 06, 2015 9:45:51 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+INFO: Overriding bean definition for bean 'secretMap': replacing [Generic bean: class [com.spring.aop.service.SecretMap]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [G:\wspractise\SpringAOP-AccessControl\target\classes\com\spring\aop\service\SecretMap.class]] with [Generic bean: class [com.spring.aop.service.SecretMap]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [beans.xml]]
+Oct 06, 2015 9:45:51 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@131ef10: defining beans [org.springframework.aop.config.internalAutoProxyCreator,loggingAspect,secret,secretMap,secretService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+----------------------------------------------------------
+----------------------TEST B ---------------------------- 
+Alice creates a secret with ID:: 217b13de-0273-40a9-aa1f-edb2cb0b3f04
+Alice shares the secret of ID 217b13de-0273-40a9-aa1f-edb2cb0b3f04 with Bob
+Bob reads the secret of ID 217b13de-0273-40a9-aa1f-edb2cb0b3f04
+-----------------------TEST B Ends----------------------
+Oct 06, 2015 9:45:51 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@4009e306: startup date [Tue Oct 06 21:45:51 PDT 2015]; root of context hierarchy
+Oct 06, 2015 9:45:51 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [beans.xml]
+Oct 06, 2015 9:45:52 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+INFO: Overriding bean definition for bean 'secretMap': replacing [Generic bean: class [com.spring.aop.service.SecretMap]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [G:\wspractise\SpringAOP-AccessControl\target\classes\com\spring\aop\service\SecretMap.class]] with [Generic bean: class [com.spring.aop.service.SecretMap]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [beans.xml]]
+Oct 06, 2015 9:45:52 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1e178745: defining beans [org.springframework.aop.config.internalAutoProxyCreator,loggingAspect,secret,secretMap,secretService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+----------------------------------------------------------
+TEST C
+Alice creates a secret with ID:: 2b3e106f-dadf-4ad8-b5c4-d4eeb11e0a62
+Alice shares the secret of ID 2b3e106f-dadf-4ad8-b5c4-d4eeb11e0a62 with Bob
+Bob shares the secret of ID 2b3e106f-dadf-4ad8-b5c4-d4eeb11e0a62 with Carl
+Carl reads the secret of ID 2b3e106f-dadf-4ad8-b5c4-d4eeb11e0a62
+-----------------------TEST C Ends----------------------
+Oct 06, 2015 9:45:52 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6aaceffd: startup date [Tue Oct 06 21:45:52 PDT 2015]; root of context hierarchy
+Oct 06, 2015 9:45:52 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [beans.xml]
+Oct 06, 2015 9:45:53 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+INFO: Overriding bean definition for bean 'secretMap': replacing [Generic bean: class [com.spring.aop.service.SecretMap]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [G:\wspractise\SpringAOP-AccessControl\target\classes\com\spring\aop\service\SecretMap.class]] with [Generic bean: class [com.spring.aop.service.SecretMap]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [beans.xml]]
+Oct 06, 2015 9:45:53 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@a1cdc6d: defining beans [org.springframework.aop.config.internalAutoProxyCreator,loggingAspect,secret,secretMap,secretService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+----------------------------------------------------------
+TEST D
+Alice creates a secret with ID:: 6afa86b6-b114-4372-951a-88730cfe05dc
+Carl creates a secret with ID:: 604cde93-b0b8-45d7-8594-1e66dfdb2b2b
+Alice shares the secret of ID 6afa86b6-b114-4372-951a-88730cfe05dc with Bob
+Bob shares the secret of ID 604cde93-b0b8-45d7-8594-1e66dfdb2b2b with Alice
+Unauthorized exception- Insufficient Priveleges
+Oct 06, 2015 9:45:53 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@76ed1b7c: startup date [Tue Oct 06 21:45:53 PDT 2015]; root of context hierarchy
+Oct 06, 2015 9:45:53 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [beans.xml]
+Oct 06, 2015 9:45:53 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+INFO: Overriding bean definition for bean 'secretMap': replacing [Generic bean: class [com.spring.aop.service.SecretMap]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [G:\wspractise\SpringAOP-AccessControl\target\classes\com\spring\aop\service\SecretMap.class]] with [Generic bean: class [com.spring.aop.service.SecretMap]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [beans.xml]]
+Oct 06, 2015 9:45:53 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6bf0219d: defining beans [org.springframework.aop.config.internalAutoProxyCreator,loggingAspect,secret,secretMap,secretService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+----------------------------------------------------------
+TEST E
+Alice creates a secret with ID:: 403b68e6-cd00-4bce-9278-34be55a35ddc
+Alice shares the secret of ID 403b68e6-cd00-4bce-9278-34be55a35ddc with Bob
+Bob shares the secret of ID 403b68e6-cd00-4bce-9278-34be55a35ddc with Carl
+Alice unshares the secret with  Carl with Id:: 403b68e6-cd00-4bce-9278-34be55a35ddc
+Carl reads the secret of ID 403b68e6-cd00-4bce-9278-34be55a35ddc
+Unauthorized exception- Insufficient Privelages
+Oct 06, 2015 9:45:53 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1356d4d4: startup date [Tue Oct 06 21:45:53 PDT 2015]; root of context hierarchy
+Oct 06, 2015 9:45:53 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [beans.xml]
+Oct 06, 2015 9:45:53 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+INFO: Overriding bean definition for bean 'secretMap': replacing [Generic bean: class [com.spring.aop.service.SecretMap]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [G:\wspractise\SpringAOP-AccessControl\target\classes\com\spring\aop\service\SecretMap.class]] with [Generic bean: class [com.spring.aop.service.SecretMap]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [beans.xml]]
+Oct 06, 2015 9:45:53 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@d6e7bab: defining beans [org.springframework.aop.config.internalAutoProxyCreator,loggingAspect,secret,secretMap,secretService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+----------------------------------------------------------
+TEST F
+Alice creates a secret with ID:: 69d0f179-ebd0-46e7-9e55-8130e32cbc55
+Alice shares the secret of ID 69d0f179-ebd0-46e7-9e55-8130e32cbc55 with Bob
+Alice shares the secret of ID 69d0f179-ebd0-46e7-9e55-8130e32cbc55 with Carl
+Carl shares the secret of ID 69d0f179-ebd0-46e7-9e55-8130e32cbc55 with Bob
+Alice unshares the secret with  Bob with Id:: 69d0f179-ebd0-46e7-9e55-8130e32cbc55
+Bob reads the secret of ID 69d0f179-ebd0-46e7-9e55-8130e32cbc55
+Unauthorized exception- Insufficient Privelages
+Oct 06, 2015 9:45:54 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@503d687a: startup date [Tue Oct 06 21:45:54 PDT 2015]; root of context hierarchy
+Oct 06, 2015 9:45:54 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [beans.xml]
+Oct 06, 2015 9:45:54 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+INFO: Overriding bean definition for bean 'secretMap': replacing [Generic bean: class [com.spring.aop.service.SecretMap]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [G:\wspractise\SpringAOP-AccessControl\target\classes\com\spring\aop\service\SecretMap.class]] with [Generic bean: class [com.spring.aop.service.SecretMap]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [beans.xml]]
+Oct 06, 2015 9:45:54 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@72cde7cc: defining beans [org.springframework.aop.config.internalAutoProxyCreator,loggingAspect,secret,secretMap,secretService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+----------------------------------------------------------
+TEST G
+Alice creates a secret with ID:: 58515f98-b9ae-4aa2-99be-3bedca53fb19
+Alice shares the secret of ID 58515f98-b9ae-4aa2-99be-3bedca53fb19 with Bob
+Bob shares the secret of ID 58515f98-b9ae-4aa2-99be-3bedca53fb19 with Carl
+Bob unshares the secret with  Carl with Id:: 58515f98-b9ae-4aa2-99be-3bedca53fb19
+Carl reads the secret of ID 58515f98-b9ae-4aa2-99be-3bedca53fb19
+-----------------------TEST G Ends----------------------
+Oct 06, 2015 9:45:54 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@44821a96: startup date [Tue Oct 06 21:45:54 PDT 2015]; root of context hierarchy
+Oct 06, 2015 9:45:54 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [beans.xml]
+Oct 06, 2015 9:45:54 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+INFO: Overriding bean definition for bean 'secretMap': replacing [Generic bean: class [com.spring.aop.service.SecretMap]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [G:\wspractise\SpringAOP-AccessControl\target\classes\com\spring\aop\service\SecretMap.class]] with [Generic bean: class [com.spring.aop.service.SecretMap]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [beans.xml]]
+Oct 06, 2015 9:45:54 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@20f5239f: defining beans [org.springframework.aop.config.internalAutoProxyCreator,loggingAspect,secret,secretMap,secretService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+----------------------------------------------------------
+TEST H
+Alice creates a secret with ID:: b235ba97-4c9f-48bf-a9e6-63c42c1ad30e
+Alice shares the secret of ID b235ba97-4c9f-48bf-a9e6-63c42c1ad30e with Bob
+Carl unshares the secret with  Bob with Id:: b235ba97-4c9f-48bf-a9e6-63c42c1ad30e
+Unauthorized Exception-Insufficient Priveleges
+Oct 06, 2015 9:45:54 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@793be5ca: startup date [Tue Oct 06 21:45:54 PDT 2015]; root of context hierarchy
+Oct 06, 2015 9:45:54 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [beans.xml]
+Oct 06, 2015 9:45:54 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+INFO: Overriding bean definition for bean 'secretMap': replacing [Generic bean: class [com.spring.aop.service.SecretMap]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [G:\wspractise\SpringAOP-AccessControl\target\classes\com\spring\aop\service\SecretMap.class]] with [Generic bean: class [com.spring.aop.service.SecretMap]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [beans.xml]]
+Oct 06, 2015 9:45:54 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@78123e82: defining beans [org.springframework.aop.config.internalAutoProxyCreator,loggingAspect,secret,secretMap,secretService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+----------------------------------------------------------
+TEST I
+Alice creates a secret with ID:: c4c9be64-9837-4e35-bd08-3d982dac7313
+Alice shares the secret of ID c4c9be64-9837-4e35-bd08-3d982dac7313 with Bob
+Bob shares the secret of ID c4c9be64-9837-4e35-bd08-3d982dac7313 with Carl
+Alice unshares the secret with  Bob with Id:: c4c9be64-9837-4e35-bd08-3d982dac7313
+Bob shares the secret of ID c4c9be64-9837-4e35-bd08-3d982dac7313 with Carl
+Unauthorized exception- Insufficient Priveleges
+Oct 06, 2015 9:45:54 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@bd4dc25: startup date [Tue Oct 06 21:45:54 PDT 2015]; root of context hierarchy
+Oct 06, 2015 9:45:54 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [beans.xml]
+Oct 06, 2015 9:45:54 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+INFO: Overriding bean definition for bean 'secretMap': replacing [Generic bean: class [com.spring.aop.service.SecretMap]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [G:\wspractise\SpringAOP-AccessControl\target\classes\com\spring\aop\service\SecretMap.class]] with [Generic bean: class [com.spring.aop.service.SecretMap]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [beans.xml]]
+Oct 06, 2015 9:45:54 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@66d3eec0: defining beans [org.springframework.aop.config.internalAutoProxyCreator,loggingAspect,secret,secretMap,secretService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+----------------------------------------------------------
+TESTJ
+Alice creates a secret with ID:: 691bb76e-ae10-462c-bafb-7cb1c55a4ff0
+Alice creates a secret with ID:: b5b0db01-1990-4a87-99db-2dd55a055a9c
+-----------------------TEST J Ends----------------------
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.255 sec
+
+Results :
+
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 15.335 s
+[INFO] Finished at: 2015-10-06T21:45:54-08:00
+[INFO] Final Memory: 7M/123M
+[INFO] ------------------------------------------------------------------------
